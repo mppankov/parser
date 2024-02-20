@@ -1,0 +1,18 @@
+{
+    "name": "mppankov/test",
+    "description": "test",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mppankov",
+            "email": "pankov.mp@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
