@@ -13,6 +13,11 @@
             "email": "pankov.mp@yandex.ru"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {}
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+      "ext-pdo": "*",
+      "ext-mysqli": "*",
+        "simplehtmldom/simplehtmldom": "dev-master"
+    }
 }
