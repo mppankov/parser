@@ -14,7 +14,7 @@ class ReviewStore
         $this->db = $db;
     }
 
-    public function save(Review $entity): void
+    public function save($entity): void
     {
         $columns = ['externalId', 'reviewDate', 'negativeText', 'positiveText', 'rating', 'authorName'];
 

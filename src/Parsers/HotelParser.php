@@ -1,30 +1,29 @@
 <?php
 
-namespace test\Adapters;
+namespace test\Parsers;
 
 use test\Model\Hotel;
 
-class UrlAdapter
+class HotelParser
 {
-    public function getReviewsData(string $url): array
+    public function getParseHotelData(string $url): Hotel
     {
-        $reviewData = $this->download($url);
-        return $this->parseReviews($reviewData);
+        $content = $this->download($url);
+        return $this->parseHotel($content);
     }
+
     private function download(string $url): string
     {
         return file_get_contents($url);
     }
-    private function parseReviews(string $content): array
+
+    private function parseHotel(string $content): Hotel
     {
         preg_match('~<h1 class="hotel__header">\s+(.*?)\s+<\/h1>~', $content, $hotelName);
         preg_match('~<span class="rating-value">(\S+)<span class="out-of">~', $content, $rating);
         preg_match('~(\d+)\s+отзыва~', $content, $countReviews);
         preg_match('~(\d+)\s+оценок~', $content, $countRatings);
 
-        $result[] = new Hotel($hotelName[1], $rating[1], $countReviews[1], $countRatings[1]);
-
-        return $result;
-
+        return new Hotel($hotelName[1], $rating[1], $countReviews[1], $countRatings[1]);
     }
 }

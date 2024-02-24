@@ -25,6 +25,7 @@ class Db
             $this->pdo->exec("CREATE DATABASE IF NOT EXISTS " . $dbOptions['dbname']);
             echo "База данных успешно создана.\n";
 
+            $this->pdo->exec('SET NAMES UTF8');
             $this->pdo->query("use " . $dbOptions['dbname'] . ";");
 
         } catch (PDOException $error) {
@@ -32,7 +33,7 @@ class Db
             echo 'Подключение к базе данных не удалось: ' . $error->getMessage();
             exit;
         }
-       // $this->pdo->exec('SET NAMES UTF8');
+
     }
 
     public function query(string $sql, array $params = [], string $className = 'stdClass'): array

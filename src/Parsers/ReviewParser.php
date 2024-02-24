@@ -1,10 +1,10 @@
 <?php
 
-namespace test\Adapters;
+namespace test\Parsers;
 
 use test\Model\Review;
 
-class AjaxAdapter
+class ReviewParser
 {
     public function getReviewsData(string $url): array
     {
@@ -19,7 +19,7 @@ class AjaxAdapter
     private function parseReviews(array $commentsData): array
     {
         $result = [];
-        
+
         foreach ($commentsData['response'] as $comment) {
 
             if ($comment['negative_text'] || $comment['positive_text']) {
