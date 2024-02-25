@@ -16,14 +16,17 @@ class ParserDownloader
     private ReviewStore $reviewStore;
     private HotelParser $hotelParser;
     private ReviewParser $reviewParser;
+    private Db $db;
 
     public function __construct()
     {
-        $this->dataBaseInit = new DataBaseInit(Db::getInstance());
-        $this->hotelStore = new HotelStore(Db::getInstance());
-        $this->reviewStore = new ReviewStore(Db::getInstance());
+        $this->db = Db::getInstance();
+        $this->dataBaseInit = new DataBaseInit($this->db);
+        $this->hotelStore = new HotelStore($this->db);
+        $this->reviewStore = new ReviewStore($this->db);
         $this->hotelParser = new HotelParser();
         $this->reviewParser = new ReviewParser();
+
     }
 
     public function save(string $url, string $ajaxUrl): void

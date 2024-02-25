@@ -8,14 +8,14 @@ class ReviewParser
 {
     public function getReviewsData(string $url): array
     {
-        $reviewData = $this->download($url);
-        return $this->parseReviews($reviewData);
+        return $this->parseReviews($this->download($url));
     }
+
     private function download(string $url): array
     {
-        $pageContentAll = file_get_contents($url);
-        return json_decode($pageContentAll, true);
+        return json_decode(file_get_contents($url), true);
     }
+
     private function parseReviews(array $commentsData): array
     {
         $result = [];

@@ -9,22 +9,25 @@ class DataBaseInit
     {
         $this->db = $db;
     }
+
     public function init(): void
     {
         $this->db->query("CREATE TABLE IF NOT EXISTS reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    externalId INT UNIQUE KEY,
-    reviewDate DATE,
-    negativeText TEXT,
-    positiveText TEXT,
+    external_id INT UNIQUE KEY,
+    review_date DATE,
+    negative_text TEXT,
+    positive_text TEXT,
     rating INT,
     author_name VARCHAR(50))");
 
-        $this->db->query("CREATE TABLE IF NOT EXISTS hotels (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    rating INT,
-    countReviews INT,
-    countRatings INT)");
+        $this->db->query("CREATE TABLE IF NOT EXISTS hotel (
+    hotel_id INT AUTO_INCREMENT PRIMARY KEY,
+    hotel TEXT,
+    rating FLOAT,
+    count_reviews INT,
+    count_ratings INT,
+    UNIQUE KEY hotel_unique (hotel(255)))");
 
     }
 }

@@ -8,8 +8,7 @@ class HotelParser
 {
     public function getParseHotelData(string $url): Hotel
     {
-        $content = $this->download($url);
-        return $this->parseHotel($content);
+        return $this->parseHotel($this->download($url));
     }
 
     private function download(string $url): string

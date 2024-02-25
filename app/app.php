@@ -13,7 +13,6 @@ try {
     $db->exec("CREATE DATABASE IF NOT EXISTS {$dbName}");
     echo "База данных успешно создана.\n";
 
-    $dsn = "mysql:host=localhost;dbname={$dbName}";
     $db->query("use $dbName;");
 
 } catch (PDOException $error) {

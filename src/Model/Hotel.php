@@ -5,7 +5,7 @@ namespace test\Model;
 class Hotel
 {
     public string $hotelName;
-    public int $rating;
+    public float $rating;
     public int $countReviews;
     public int $countRatings;
 
