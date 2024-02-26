@@ -10,7 +10,7 @@ class HotelStore
     public function __construct(Db $db)
     {
         $this->db = $db;
-;    }
+    }
 
     public function save(Hotel $entity): void
     {
