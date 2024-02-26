@@ -42,7 +42,6 @@ class Db
         $stmt->execute($params);
    }
 
-
     public static function getInstance(): self
     {
         if (self::$instance === null) {
